@@ -4,24 +4,22 @@
 
 This project demonstrates an end-to-end Business Intelligence solution using Microsoft Azure and Power BI.
 
-The objective of the project is to collect sales data, store it in Azure SQL Database, perform data modeling and analysis, and visualize business insights through interactive Power BI dashboards.
-
-The solution simulates a real-world cloud analytics platform where business users can monitor sales performance, customer behavior, product trends, and operational metrics through self-service reporting.
+The solution stores sales data in Azure SQL Database and visualizes business insights through interactive Power BI dashboards. The project showcases cloud data management, SQL querying, data modeling, DAX calculations, and dashboard development.
 
 ---
 
 ## Business Scenario
 
-A retail organization wants to gain better visibility into:
+A retail organization wants to gain visibility into:
 
-- Revenue performance
-- Product sales trends
-- Customer purchasing behavior
-- Payment status
-- Delivery status
-- Regional sales distribution
+* Revenue performance
+* Product sales trends
+* Customer purchasing behavior
+* Payment status
+* Delivery status
+* Regional sales distribution
 
-To achieve this, sales data is stored in Azure SQL Database and connected to Power BI for reporting and analytics.
+To support decision-making, sales data is stored in Azure SQL Database and analyzed using Power BI.
 
 ---
 
@@ -41,23 +39,23 @@ Interactive Dashboards
 
 ## Technologies Used
 
-- Microsoft Azure
-- Azure Resource Groups
-- Azure SQL Database
-- Azure SQL Server
-- SQL Query Editor
-- Power BI Desktop
-- Power Query
-- DAX
-- GitHub
+* Microsoft Azure
+* Azure Resource Groups
+* Azure SQL Server
+* Azure SQL Database
+* SQL Query Editor
+* Power BI Desktop
+* Power Query
+* DAX
+* GitHub
 
 ---
 
-## Azure Resources Deployed
+# Azure Resources Deployed
 
-### Resource Group
+## Resource Group
 
-Resource group created to contain all project resources.
+Resource group created to host all project resources.
 
 **Resource Group Name**
 
@@ -65,15 +63,19 @@ Resource group created to contain all project resources.
 rg-powerbi-sales-project
 ```
 
-**Screenshot**
+**Region**
 
-
-!(screenshots/01-resource-group-created.png)
+```text
+West Europe
 ```
+
+### Screenshot
+
+![Resource Group](screenshots/01-resource-group-created.png)
 
 ---
 
-### Azure SQL Server
+## Azure SQL Server
 
 Logical SQL server created to host the Azure SQL Database.
 
@@ -89,17 +91,15 @@ sql-sales-mrigakshi
 West Europe
 ```
 
-**Screenshot**
+### Screenshot
 
-```text
-screenshots/02-sql-server-created.png
-```
+![Azure SQL Server](screenshots/02-sql-server-created.png)
 
 ---
 
-### Azure SQL Database
+## Azure SQL Database
 
-Cloud-hosted relational database used for storing sales data.
+Azure SQL Database created for storing sales data.
 
 **Database Name**
 
@@ -107,126 +107,104 @@ Cloud-hosted relational database used for storing sales data.
 sqldb-sales-analytics
 ```
 
-**Screenshot**
+### Screenshot
 
-
-screenshots/03-sql-database-created.png
-```
+![Azure SQL Database](screenshots/03-sql-database-created.png)
 
 ---
 
-### Firewall Configuration
+## Firewall Configuration
 
 Network access configured to allow Azure services and local machine connectivity.
 
-**Configuration**
+### Configuration
 
-- Public Endpoint Enabled
-- Azure Services Access Enabled
-- Client IP Added
+* Public Endpoint Enabled
+* Azure Services Access Enabled
+* Client IPv4 Address Added
 
-**Screenshot**
+### Screenshot
 
-```text
-screenshots/04-firewall-configuration.png
-```
+![Firewall Configuration](screenshots/04-firewall-configuration.png)
 
 ---
 
-## Database Design
+# Database Design
+
+## Sales Table
 
 A Sales table was created to store transactional sales information.
 
-### Sales Table Structure
+| Column         | Data Type     |
+| -------------- | ------------- |
+| OrderID        | INT           |
+| OrderDate      | DATE          |
+| CustomerName   | VARCHAR(100)  |
+| Country        | VARCHAR(50)   |
+| Product        | VARCHAR(100)  |
+| Category       | VARCHAR(50)   |
+| Quantity       | INT           |
+| UnitPrice      | DECIMAL(10,2) |
+| Revenue        | DECIMAL(10,2) |
+| PaymentStatus  | VARCHAR(50)   |
+| DeliveryStatus | VARCHAR(50)   |
 
-| Column | Data Type |
-|----------|----------|
-| OrderID | INT |
-| OrderDate | DATE |
-| CustomerName | VARCHAR(100) |
-| Country | VARCHAR(50) |
-| Product | VARCHAR(100) |
-| Category | VARCHAR(50) |
-| Quantity | INT |
-| UnitPrice | DECIMAL |
-| Revenue | DECIMAL |
-| PaymentStatus | VARCHAR(50) |
-| DeliveryStatus | VARCHAR(50) |
+### Screenshot
 
----
-
-### SQL Table Creation
-
-SQL script executed through Azure Query Editor.
-
-**Screenshot**
-
-```text
-screenshots/05-sales-table-created.png
-```
+![Sales Table Created](screenshots/05-sales-table-created.png)
 
 ---
 
-### Sample Data Insertion
+## Sample Data Insertion
 
-Sample sales records were inserted into the Sales table for reporting purposes.
+Sample sales records were inserted into the Sales table for reporting and analytics.
 
-**Screenshot**
+### Screenshot
 
-```text
-screenshots/06-sales-data-inserted.png
-```
+![Sales Data Inserted](screenshots/06-sales-data-inserted.png)
 
 ---
 
-### Data Validation
+## Data Validation
 
-SQL query executed to verify data integrity.
+A SQL query was executed to validate that the data was successfully inserted.
 
 ```sql
 SELECT * FROM Sales;
 ```
 
-**Screenshot**
+### Screenshot
 
-```text
-screenshots/07-sales-data-validation.png
-```
+![Sales Data Validation](screenshots/07-sales-data-validation.png)
 
 ---
 
-## Power BI Development
+# Power BI Development
+
+## Azure SQL Database Connection
 
 Power BI Desktop was connected directly to Azure SQL Database.
 
-### Azure SQL Connection
+### Screenshot
 
-Data imported from Azure SQL Database.
-
-**Screenshot**
-
-```text
-screenshots/08-powerbi-sql-connection.png
-```
+![Power BI SQL Connection](screenshots/08-powerbi-sql-connection.png)
 
 ---
 
-### Power Query Transformations
+## Power Query Transformations
 
-Data types and formatting were validated using Power Query.
+The dataset was validated and transformed using Power Query.
 
-Activities performed:
+### Activities Performed
 
-- Date formatting
-- Numeric validation
-- Data cleansing
-- Column verification
+* Date formatting
+* Data type validation
+* Data cleansing
+* Column verification
 
-**Screenshot**
+### Screenshot
 
-```text
-screenshots/09-power-query-transformations.png
-```
+![Power Query Transformations](screenshots/09-power-query-transformations.png)
 
 ---
 
@@ -248,7 +226,7 @@ Total Orders = COUNT(Sales[OrderID])
 
 ```DAX
 Average Order Value =
-DIVIDE([Total Revenue],[Total Orders])
+DIVIDE([Total Revenue], [Total Orders])
 ```
 
 ### Total Quantity Sold
@@ -258,11 +236,9 @@ Total Quantity Sold =
 SUM(Sales[Quantity])
 ```
 
-**Screenshot**
+### Screenshot
 
-```text
-screenshots/10-dax-measures-created.png
-```
+![DAX Measures](screenshots/10-dax-measures-created.png)
 
 ---
 
@@ -274,24 +250,16 @@ Provide a high-level summary of business performance.
 
 ### Visualizations
 
-- Total Revenue KPI
-- Total Orders KPI
-- Average Order Value KPI
-- Revenue by Product
-- Revenue by Country
-- Monthly Revenue Trend
+* Total Revenue
+* Total Orders
+* Average Order Value
+* Revenue by Product
+* Revenue by Country
+* Monthly Revenue Trend
 
-### Key Insights
+### Screenshot
 
-- Monitor business growth
-- Identify revenue trends
-- Compare sales across countries
-
-**Screenshot**
-
-```text
-screenshots/11-sales-overview-dashboard.png
-```
+![Sales Overview Dashboard](screenshots/11-sales-overview-dashboard.png)
 
 ---
 
@@ -303,22 +271,14 @@ Analyze product and category performance.
 
 ### Visualizations
 
-- Revenue by Category
-- Quantity Sold by Product
-- Product Revenue Ranking
-- Category Contribution
+* Revenue by Category
+* Product Revenue Ranking
+* Quantity Sold by Product
+* Category Contribution
 
-### Key Insights
+### Screenshot
 
-- Best-selling products
-- Top revenue-generating categories
-- Product demand patterns
-
-**Screenshot**
-
-```text
-screenshots/12-product-performance-dashboard.png
-```
+![Product Performance Dashboard](screenshots/12-product-performance-dashboard.png)
 
 ---
 
@@ -330,74 +290,53 @@ Understand customer activity and operational performance.
 
 ### Visualizations
 
-- Revenue by Customer
-- Revenue by Country
-- Payment Status Distribution
-- Delivery Status Distribution
+* Revenue by Customer
+* Revenue by Country
+* Payment Status Distribution
+* Delivery Status Distribution
 
-### Key Insights
+### Screenshot
 
-- Top customers
-- Outstanding payments
-- Delivery performance monitoring
-
-**Screenshot**
-
-```text
-screenshots/13-customer-operations-dashboard.png
-```
+![Customer Operations Dashboard](screenshots/13-customer-operations-dashboard.png)
 
 ---
 
-## Business Benefits
+# Skills Demonstrated
 
-This solution provides:
+## Azure
 
-- Centralized reporting
-- Cloud-hosted analytics
-- Interactive business dashboards
-- Data-driven decision-making
-- KPI monitoring
-- Self-service reporting capabilities
+* Azure Resource Groups
+* Azure SQL Database
+* Azure SQL Server
+* Firewall Configuration
+* Cloud Resource Management
 
----
+## SQL
 
-## Skills Demonstrated
+* Table Creation
+* Data Validation
+* Data Querying
+* Data Management
 
-### Azure
+## Power BI
 
-- Azure Resource Groups
-- Azure SQL Database
-- Azure SQL Server
-- Network Security Configuration
-- Cloud Resource Management
+* Data Modeling
+* Power Query
+* DAX
+* Dashboard Development
+* KPI Reporting
+* Data Visualization
 
-### SQL
+## Business Analysis
 
-- Table Creation
-- Data Validation
-- Query Execution
-- Data Management
-
-### Power BI
-
-- Data Modeling
-- Power Query
-- DAX
-- Dashboard Development
-- KPI Reporting
-- Data Visualization
-
-### Business Analysis
-
-- Data Interpretation
-- Performance Monitoring
-- Trend Analysis
-- Operational Reporting
+* Data Interpretation
+* Trend Analysis
+* KPI Monitoring
+* Operational Reporting
 
 ---
 
-## Repository Structure
+# Repository Structure
 
 ```text
 powerbi-azure-sales-dashboard
@@ -405,15 +344,15 @@ powerbi-azure-sales-dashboard
 │
 ├── README.md
 │
+├── dataset
+│   └── sales-data.csv
+│
 ├── sql
 │   ├── create-sales-table.sql
-│   ├── insert-sales-data.sql
+│   └── insert-sales-data.sql
 │
 ├── powerbi
 │   └── sales-analytics-dashboard.pbix
-│
-├── dataset
-│   └── sales-data.csv
 │
 ├── screenshots
 │   ├── 01-resource-group-created.png
@@ -436,13 +375,13 @@ powerbi-azure-sales-dashboard
 
 ---
 
-## Key Learning Outcomes
+# Key Learning Outcomes
 
-- Deploying cloud database solutions in Azure
-- Configuring Azure SQL Database networking
-- Creating relational database tables
-- Executing SQL queries in Azure
-- Connecting Azure services to Power BI
-- Building interactive business dashboards
-- Creating DAX measures and KPIs
-- Publishing a complete analytics solution to GitHub
+* Deploying Azure SQL Database resources
+* Configuring Azure networking and firewall rules
+* Creating and managing relational database tables
+* Executing SQL queries in Azure
+* Connecting Azure SQL Database to Power BI
+* Building interactive dashboards and KPIs
+* Creating DAX measures and business reports
+* Publishing a complete analytics solution to GitHub
