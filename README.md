@@ -188,6 +188,7 @@ Power BI Desktop was connected directly to Azure SQL Database.
 ### Screenshot
 
 ![Power BI SQL Connection](screenshots/08-powerbi-sql-connection.png)
+![Power BI SQL Connection](screenshots/08-powerbi-sql-connection-sales-table.png)
 
 ---
 
