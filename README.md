@@ -344,44 +344,6 @@ Understand customer activity and operational performance.
 
 ---
 
-# Repository Structure
-
-```text
-powerbi-azure-sales-dashboard
-
-│
-├── README.md
-│
-├── dataset
-│   └── sales-data.csv
-│
-├── sql
-│   ├── create-sales-table.sql
-│   └── insert-sales-data.sql
-│
-├── powerbi
-│   └── sales-analytics-dashboard.pbix
-│
-├── screenshots
-│   ├── 01-resource-group-created.png
-│   ├── 02-sql-server-created.png
-│   ├── 03-sql-database-created.png
-│   ├── 04-firewall-configuration.png
-│   ├── 05-sales-table-created.png
-│   ├── 06-sales-data-inserted.png
-│   ├── 07-sales-data-validation.png
-│   ├── 08-powerbi-sql-connection.png
-│   ├── 09-power-query-transformations.png
-│   ├── 10-dax-measures-created.png
-│   ├── 11-sales-overview-dashboard.png
-│   ├── 12-product-performance-dashboard.png
-│   └── 13-customer-operations-dashboard.png
-│
-└── docs
-    └── project-summary.md
-```
-
----
 
 # Key Learning Outcomes
 
