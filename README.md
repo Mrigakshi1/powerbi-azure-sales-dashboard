@@ -264,18 +264,25 @@ Provide a high-level summary of business performance.
 
 ---
 
-# Dashboard 2 — Product Performance
+## Dashboard 2 – Product Performance Dashboard
 
-## Objective
+### Objective
 
-Analyze product and category performance.
+Analyze product and category performance to identify revenue drivers and sales trends.
 
 ### Visualizations
 
-* Revenue by Category
-* Product Revenue Ranking
-* Quantity Sold by Product
-* Category Contribution
+- Revenue by Category
+- Quantity Sold by Product
+- Product Ranking Table
+- Category Contribution Analysis
+
+### Key Insights
+
+- Electronics generated the highest revenue.
+- Accessories contributed a smaller share of total revenue.
+- Headset recorded the highest quantity sold.
+- Laptop generated the highest product revenue.
 
 ### Screenshot
 
