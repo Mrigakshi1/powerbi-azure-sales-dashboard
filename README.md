@@ -86,7 +86,7 @@ sql-sales-mrigakshi
 **Region**
 
 ```text
-East US
+West Europe
 ```
 
 **Screenshot**
