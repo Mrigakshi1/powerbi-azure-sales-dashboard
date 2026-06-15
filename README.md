@@ -67,8 +67,8 @@ rg-powerbi-sales-project
 
 **Screenshot**
 
-```text
-screenshots/01-resource-group-created.png
+
+!(screenshots/01-resource-group-created.png)
 ```
 
 ---
@@ -109,7 +109,7 @@ sqldb-sales-analytics
 
 **Screenshot**
 
-```text
+
 screenshots/03-sql-database-created.png
 ```
 
